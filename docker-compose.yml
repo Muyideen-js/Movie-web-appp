@@ -1,0 +1,23 @@
+version: '3'
+services:
+  streaming-server:
+    build: ./server
+    ports:
+      - "3001:3001"
+    environment:
+      - JWT_SECRET=your-secret-key
+      - AWS_ACCESS_KEY_ID=your-aws-key
+      - AWS_SECRET_ACCESS_KEY=your-aws-secret
+      - CLOUDFRONT_KEY_PAIR_ID=your-cloudfront-key-pair
+      - CLOUDFRONT_PRIVATE_KEY=your-cloudfront-private-key
+    volumes:
+      - ./videos:/app/videos
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - streaming-server 

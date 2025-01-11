@@ -1,0 +1,142 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: var(--transition);
+  padding: 1rem 0;
+  background: linear-gradient(to bottom, rgba(15, 15, 15, 0.95), rgba(15, 15, 15, 0.8));
+  backdrop-filter: blur(10px);
+}
+
+.header.scrolled {
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.logo {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 2.5rem 0.6rem 1.2rem;
+  border-radius: 30px;
+  color: var(--text-color);
+  width: 240px;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.search input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary-color);
+  width: 280px;
+}
+
+.search .icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+.search:hover .icon {
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+.user {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.user:hover {
+  background-color: var(--primary-color);
+}
+
+.user .icon {
+  font-size: 1.1rem;
+  color: var(--text-color);
+} 
